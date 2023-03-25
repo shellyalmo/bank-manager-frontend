@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { bankApi } from "../api/api";
+import UserActions from "./UserActions";
 
 const UsersList = ({ newUser }) => {
   const [users, setUsers] = useState([]);
@@ -24,6 +25,10 @@ const UsersList = ({ newUser }) => {
           <div key={user.id}>
             Name: {user.name} PassportID: {user.passportID} Email: {user.email}{" "}
             Age: {user.age}
+            <details>
+              <summary>Details</summary>
+              <UserActions user={user} />
+            </details>
           </div>
         );
       })}
