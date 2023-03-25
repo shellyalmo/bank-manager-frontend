@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { bankApi } from "../api/api";
 import UserActions from "./UserActions";
 
-const UsersList = ({ newUser }) => {
+const UsersList = ({ newUser, setNewUser }) => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -38,7 +38,7 @@ const UsersList = ({ newUser }) => {
               <td>{user.age}</td>
               <details>
                 <summary>Click to Open</summary>
-                <UserActions user={user} />
+                <UserActions user={user} setNewUser={setNewUser} />
               </details>
             </tr>
           );

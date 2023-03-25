@@ -1,6 +1,8 @@
 import React from "react";
+import DepositCash from "./DepositCash";
 
-const AccountsList = ({ accounts }) => {
+const AccountsList = ({ user, setNewUser }) => {
+    const {accounts} = user
   return (
     <section>
       <table>
@@ -20,9 +22,13 @@ const AccountsList = ({ accounts }) => {
                   <summary>Account Actions</summary>
                   <details>
                     <summary>Deposit Cash</summary>
+                    <DepositCash accountId={account.id} setNewUser={setNewUser} />
                   </details>
                   <details>
                     <summary>Withdraw Cash</summary>
+                  </details>
+                  <details>
+                    <summary>Update Credit</summary>
                   </details>
                   <details>
                     <summary>Transfer Money</summary>

@@ -1,7 +1,7 @@
 import React from "react";
 import AccountsList from "./AccountsList";
 
-const UserActions = ({ user }) => {
+const UserActions = ({ user, setNewUser }) => {
   return (
     <section>
       <table>
@@ -23,7 +23,7 @@ const UserActions = ({ user }) => {
           <th>id:</th> <td>{user.id}</td>{" "}
         </tr>
       </table>
-      <AccountsList accounts={user.accounts} />
+      <AccountsList user={user} setNewUser={setNewUser} />
     </section>
   );
 };
