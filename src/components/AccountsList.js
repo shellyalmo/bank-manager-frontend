@@ -1,6 +1,7 @@
 import React from "react";
 import UpdateCash from "./UpdateCash";
 import UpdateCredit from "./UpdateCredit";
+import TransferToAccount from "./TransferToAccount";
 
 const AccountsList = ({ user, setNewUser }) => {
   const { accounts } = user;
@@ -49,6 +50,10 @@ const AccountsList = ({ user, setNewUser }) => {
                     </details>
                     <details>
                       <summary>Transfer Money</summary>
+                      <TransferToAccount
+                        accountId={account.id}
+                        setNewUser={setNewUser}
+                      />
                     </details>
                   </details>
                 </td>

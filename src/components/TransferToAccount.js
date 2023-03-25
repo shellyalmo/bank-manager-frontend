@@ -1,12 +1,18 @@
 import { useState, useEffect } from "react";
 import { bankApi } from "../api/api";
 
-const updateCreditApi = (form, accountId) => {
-  return bankApi.put(`accounts/updateBalance/${accountId}`, form);
+const updateCreditApi = (form, fromAccountId) => {
+  bankApi.put(`accounts/updateBalance/${fromAccountId}`, {
+    credit: form.credit * -1,
+  });
+  return bankApi.put(`accounts/updateBalance/${form.toAccountId}`, {
+    credit: form.credit,
+  });
 };
 const TransferToAccount = ({ accountId, setNewUser }) => {
   const [form, setForm] = useState({
     credit: 0,
+    toAccountId: "",
   });
   const [accounts, setAccounts] = useState([]);
 
@@ -35,12 +41,17 @@ const TransferToAccount = ({ accountId, setNewUser }) => {
       />
       <label for="account-select">Account of Receiver:</label>
 
-      <select>
+      <select
+        onChange={(e) => {
+          setForm({ ...form, toAccountId: e.target.value });
+        }}
+      >
         <option value="">--Please choose an account--</option>
         {accounts.map((account) => {
-          return <option>{account.id}</option>;
+          return <option value={account.id}>{account.id}</option>;
         })}
       </select>
+
       <button
         onClick={async () => {
           await updateCreditApi(form, accountId);
