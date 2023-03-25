@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { bankApi } from "../api/api";
-import Navbar from "../components/Navbar";
 
 const UsersList = () => {
   const [users, setUsers] = useState([]);
@@ -19,15 +18,17 @@ const UsersList = () => {
   }, []);
 
   return (
-    <>
-      <Navbar />
-
-      <div>
-        {users?.map((user) => {
-          return <div key={user.id}>{user.name}</div>;
-        })}
-      </div>
-    </>
+    <section>
+      <h2>All users: </h2>
+      {users?.map((user) => {
+        return (
+          <div key={user.id}>
+            Name: {user.name} PassportID: {user.passportID} Email: {user.email}{" "}
+            Age: {user.age}
+          </div>
+        );
+      })}
+    </section>
   );
 };
 
