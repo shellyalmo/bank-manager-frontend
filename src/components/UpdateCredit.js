@@ -1,33 +1,32 @@
 import { useState } from "react";
 import { bankApi } from "../api/api";
 
-const updateCashApi = (form, accountId) => {
+const updateCreditApi = (form, accountId) => {
   return bankApi.put(`accounts/updateBalance/${accountId}`, form);
 };
-const DepositCash = ({ accountId, setNewUser }) => {
+const UpdateCredit = ({ accountId, setNewUser }) => {
   const [form, setForm] = useState({
-    cash: 0,
+    credit: 0,
   });
   return (
     <div>
-      <label htmlFor="deposit">Enter Amount: </label>
+      <label htmlFor="deposit">Enter Amount to update: </label>
       <input
         type="number"
-        min="0"
         onChange={(e) => {
-          setForm({ ...form, cash: e.target.valueAsNumber });
+          setForm({ ...form, credit: e.target.valueAsNumber });
         }}
       />
       <button
         onClick={async () => {
-          await updateCashApi(form, accountId);
+          await updateCreditApi(form, accountId);
           setNewUser(Math.random());
         }}
       >
-        Deposit
+        Update
       </button>
     </div>
   );
 };
 
-export default DepositCash;
+export default UpdateCredit;
