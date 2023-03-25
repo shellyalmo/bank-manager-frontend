@@ -9,19 +9,25 @@ const Homepage = () => {
     async function fetchUsers() {
       try {
         const response = await bankApi.get("/users");
-        setUsers(response.data);
-        console.log("Users:", response.data);
+        setUsers(response.data.data);
+        console.log("Users:", users);
       } catch (error) {
         console.error(error);
       }
     }
     fetchUsers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
       <Navbar />
       <div>Welcome to Homepage</div>
+      <div>
+        {users?.map((user) => {
+          return user.name;
+        })}
+      </div>
     </>
   );
 };
