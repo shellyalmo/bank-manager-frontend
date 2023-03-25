@@ -39,7 +39,7 @@ const TransferToAccount = ({ accountId, setNewUser }) => {
           }
         }}
       />
-      <label for="account-select">Account of Receiver:</label>
+      <label htmlFor="account-select">Account of Receiver:</label>
 
       <select
         onChange={(e) => {

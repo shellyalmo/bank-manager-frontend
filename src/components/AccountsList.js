@@ -2,6 +2,7 @@ import React from "react";
 import UpdateCash from "./UpdateCash";
 import UpdateCredit from "./UpdateCredit";
 import TransferToAccount from "./TransferToAccount";
+import { bankApi } from "../api/api";
 
 const AccountsList = ({ user, setNewUser }) => {
   const { accounts } = user;
@@ -13,6 +14,7 @@ const AccountsList = ({ user, setNewUser }) => {
             <th>Account ID:</th>
             <th>Credit Amount:</th>
             <th>Cash Amount:</th>
+            <th>Account Actions:</th>
           </tr>
         </thead>
         <tbody>
@@ -62,6 +64,15 @@ const AccountsList = ({ user, setNewUser }) => {
           })}
         </tbody>
       </table>
+      <button
+        type="button"
+        onClick={async () => {
+          await bankApi.post("accounts", { passportID: user.passportID });
+          setNewUser(Math.random());
+        }}
+      >
+        Add Account
+      </button>
     </section>
   );
 };
