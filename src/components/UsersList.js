@@ -20,18 +20,27 @@ const UsersList = ({ newUser }) => {
   return (
     <section>
       <h2>All users: </h2>
-      {users?.map((user) => {
-        return (
-          <div key={user.id}>
-            Name: {user.name} PassportID: {user.passportID} Email: {user.email}{" "}
-            Age: {user.age}
-            <details>
-              <summary>Details</summary>
-              <UserActions user={user} />
-            </details>
-          </div>
-        );
-      })}
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>PassportID</th>
+          <th>Email</th>
+          <th>Age</th>
+        </tr>
+        {users?.map((user) => {
+          return (
+            <tr key={user.id}>
+              <td> {user.name}</td>
+              <td> {user.passportID}</td> <td>{user.email}</td>
+              <td>{user.age}</td>
+              <details>
+                <summary>Details</summary>
+                <UserActions user={user} />
+              </details>
+            </tr>
+          );
+        })}
+      </table>
     </section>
   );
 };

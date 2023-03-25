@@ -4,11 +4,25 @@ import AccountsList from "./AccountsList";
 const UserActions = ({ user }) => {
   return (
     <section>
-      <div>Total Cash: {user.totalCash}</div>
-      <div>Total Credit: {user.totalCredit}</div>
-      <div>createdAt: {user.createdAt}</div>
-      <div>updatedAt: {user.updatedAt}</div>
-      <div>id: {user.id}</div>
+      <table>
+        <tr>
+          <th>Total Cash: </th>
+          <td>{user.totalCash}</td>
+        </tr>
+
+        <tr>
+          <th>Total Credit:</th> <td>{user.totalCredit}</td>
+        </tr>
+        <tr>
+          <th>createdAt:</th> <td>{user.createdAt}</td>
+        </tr>
+        <tr>
+          <th>updatedAt:</th> <td>{user.updatedAt}</td>
+        </tr>
+        <tr>
+          <th>id:</th> <td>{user.id}</td>{" "}
+        </tr>
+      </table>
       <AccountsList accounts={user.accounts} />
     </section>
   );
