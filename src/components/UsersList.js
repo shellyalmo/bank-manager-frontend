@@ -19,13 +19,16 @@ const UsersList = ({ newUser }) => {
 
   return (
     <section>
-      <h2>All users: </h2>
+      <header>
+        <h2>All users: </h2>
+      </header>
       <table>
         <tr>
           <th>Name</th>
           <th>PassportID</th>
           <th>Email</th>
           <th>Age</th>
+          <th>Details</th>
         </tr>
         {users?.map((user) => {
           return (
@@ -34,7 +37,7 @@ const UsersList = ({ newUser }) => {
               <td> {user.passportID}</td> <td>{user.email}</td>
               <td>{user.age}</td>
               <details>
-                <summary>Details</summary>
+                <summary>Click to Open</summary>
                 <UserActions user={user} />
               </details>
             </tr>

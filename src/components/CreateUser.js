@@ -14,7 +14,9 @@ const CreateUser = ({ setNewUser }) => {
 
   return (
     <section>
-      <h2>Create a New User: </h2>
+      <header>
+        <h2>Create a New User: </h2>
+      </header>
       <form method="post">
         <label htmlFor="userPassport">Passport ID: </label>
         <input

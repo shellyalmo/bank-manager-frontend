@@ -7,6 +7,9 @@ const Homepage = () => {
 
   return (
     <main>
+      <header>
+        <h1>Bank Manager App</h1>
+      </header>
       <UsersList newUser={newUser} />
       <CreateUser setNewUser={setNewUser} />
     </main>
