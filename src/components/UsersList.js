@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { bankApi } from "../api/api";
 
-const UsersList = () => {
+const UsersList = ({ newUser }) => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -14,8 +14,7 @@ const UsersList = () => {
       }
     }
     fetchUsers();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [newUser]);
 
   return (
     <section>

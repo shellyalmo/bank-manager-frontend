@@ -2,9 +2,9 @@ import { useState } from "react";
 import { bankApi } from "../api/api";
 
 const createUserApi = (form) => {
-  bankApi.post("/users", form);
+  return bankApi.post("/users", form);
 };
-const CreateUser = () => {
+const CreateUser = ({ setNewUser }) => {
   const [form, setForm] = useState({
     passportID: "",
     name: "",
@@ -21,6 +21,8 @@ const CreateUser = () => {
           onChange={(e) => {
             setForm({ ...form, passportID: e.target.value });
           }}
+          minLength={9}
+          maxLength={9}
           value={form.passportID}
           type="text"
           required
@@ -53,7 +55,13 @@ const CreateUser = () => {
           min="18"
           required
         />
-        <button type="button" onClick={() => createUserApi(form)}>
+        <button
+          type="button"
+          onClick={async () => {
+            await createUserApi(form);
+            setNewUser(form.passportID);
+          }}
+        >
           Submit
         </button>
       </form>
