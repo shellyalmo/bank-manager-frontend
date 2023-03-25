@@ -4,6 +4,9 @@ import UpdateCredit from "./UpdateCredit";
 import TransferToAccount from "./TransferToAccount";
 import { bankApi } from "../api/api";
 
+const deleteAccount = (accountId) => {
+  return bankApi.delete(`/accounts/${accountId}`);
+};
 const AccountsList = ({ user, setNewUser }) => {
   const { accounts } = user;
   return (
@@ -57,6 +60,16 @@ const AccountsList = ({ user, setNewUser }) => {
                         setNewUser={setNewUser}
                       />
                     </details>
+                    <button
+                      type="button"
+                      style={{ backgroundColor: "#C70000", border: "#C70000" }}
+                      onClick={async () => {
+                        await deleteAccount(account.id);
+                        setNewUser(Math.random());
+                      }}
+                    >
+                      Delete Account
+                    </button>
                   </details>
                 </td>
               </tr>
