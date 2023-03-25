@@ -10,7 +10,6 @@ const UsersList = () => {
       try {
         const response = await bankApi.get("/users");
         setUsers(response.data.data);
-        console.log("Users:", users);
       } catch (error) {
         console.error(error);
       }
@@ -25,7 +24,7 @@ const UsersList = () => {
 
       <div>
         {users?.map((user) => {
-          return user.name;
+          return <div key={user.id}>{user.name}</div>;
         })}
       </div>
     </>
