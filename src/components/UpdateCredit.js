@@ -10,7 +10,7 @@ const UpdateCredit = ({ accountId, setNewUser }) => {
   });
   return (
     <div>
-      <label htmlFor="deposit">Enter Amount to update: </label>
+      <label htmlFor="update">Enter Amount to update: </label>
       <input
         type="number"
         onChange={(e) => {

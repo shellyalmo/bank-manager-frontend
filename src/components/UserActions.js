@@ -5,23 +5,25 @@ const UserActions = ({ user, setNewUser }) => {
   return (
     <section>
       <table>
-        <tr>
-          <th>Total Cash: </th>
-          <td>{user.totalCash}</td>
-        </tr>
+        <tbody>
+          <tr>
+            <th>Total Cash: </th>
+            <td>{user.totalCash}</td>
+          </tr>
 
-        <tr>
-          <th>Total Credit:</th> <td>{user.totalCredit}</td>
-        </tr>
-        <tr>
-          <th>createdAt:</th> <td>{user.createdAt}</td>
-        </tr>
-        <tr>
-          <th>updatedAt:</th> <td>{user.updatedAt}</td>
-        </tr>
-        <tr>
-          <th>id:</th> <td>{user.id}</td>{" "}
-        </tr>
+          <tr>
+            <th>Total Credit:</th> <td>{user.totalCredit}</td>
+          </tr>
+          <tr>
+            <th>createdAt:</th> <td>{user.createdAt}</td>
+          </tr>
+          <tr>
+            <th>updatedAt:</th> <td>{user.updatedAt}</td>
+          </tr>
+          <tr>
+            <th>id:</th> <td>{user.id}</td>{" "}
+          </tr>
+        </tbody>
       </table>
       <AccountsList user={user} setNewUser={setNewUser} />
     </section>

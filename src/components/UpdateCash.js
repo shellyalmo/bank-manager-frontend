@@ -10,7 +10,7 @@ const UpdateCash = ({ accountId, setNewUser, action }) => {
   });
   return (
     <div>
-      <label htmlFor="deposit">Enter Amount: </label>
+      <label htmlFor="update">Enter Amount: </label>
       <input
         type="number"
         min={action === "deposit" ? 0 : undefined}
