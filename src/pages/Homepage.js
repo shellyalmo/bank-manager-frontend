@@ -21,7 +21,7 @@ const Homepage = () => {
   return (
     <>
       <Navbar />
-      <div>Homepage</div>
+      <div>Welcome to Homepage</div>
     </>
   );
 };
